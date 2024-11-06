@@ -53,7 +53,7 @@
     - Fungsi: Menyediakan efek visual seperti material ink splash dan bayangan untuk widget anak.
     - Digunakan dalam `ItemCard` untuk memberikan efek visual saat kartu ditekan.
 - **InkWell**:
-    - Fungsi: Menambahkan kemampuan untuk mendeteksi interaksi sentuhan dan memberikan efek ripple saat ditekan.
+    - Fungsi: Menambahkan kemampuan untuk mendeteksi interaksi saat disentuh dan memberikan efek ripple saat ditekan.
     - Digunakan dalam `ItemCard` untuk mendeteksi tap dan menampilkan `SnackBar`.
 - **Icon**:
     - Fungsi: Menampilkan ikon berdasarkan data `IconData`.
@@ -89,7 +89,7 @@ final List<ItemHomepage> items = [
 ```
 * Tombol-tombol tersebut ditampilkan dalam layout berbentuk grid dengan tiga kolom. Hal ini dilakukan menggunakan widget GridView.count di dalam build method kelas MyHomePage.
 * Setiap tombol dirender menggunakan ItemCard, sebuah kelas stateless widget yang menerima objek ItemHomepage sebagai parameter. Di dalam ItemCard, ikon dan teks dari tombol ditampilkan di dalam Column, dengan ikon di atas dan teks di bawahnya.
-* Setiap ItemCard dibungkus dalam InkWell, yang memungkinkan interaksi sentuh. Ketika tombol ditekan, sebuah pesan SnackBar muncul untuk menunjukkan tombol mana yang ditekan.
+* Setiap ItemCard dibungkus dalam InkWell, yang memungkinkan interaksi saat disentuh. Ketika tombol ditekan, sebuah pesan SnackBar muncul untuk menunjukkan tombol mana yang ditekan.
 #### Mengimplementasikan warna-warna yang berbeda untuk setiap tombol (Lihat Daftar Produk, Tambah Produk, dan Logout).
 * Menambahkan variabel backgroundColor yang nilainya akan ditentukan berdasarkan nama item (item.name) di dalam kelas ItemCard
 * Lalu menggunakan switch case untuk menentukan warna tiap item button, jika item.name adalah "Lihat Daftar Produk", warna akan diatur menjadi biru, jika "Tambah Produk", warna akan diatur menjadi hijau; dan jika "Logout", warna akan diatur menjadi merah.
