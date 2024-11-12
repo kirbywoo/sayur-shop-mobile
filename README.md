@@ -1,4 +1,4 @@
-## Daftar Isi
+## Daftar Isi 
 - [Tugas 7](#tugas-7)
 - [Tugas 8](#tugas-8)
 
@@ -138,4 +138,51 @@ final List<ItemHomepage> items = [
         },
   ```
 
-  ## Tugas 8
+## Tugas 8
+### 1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+Di Flutter, `const` **digunakan** untuk mendefinisikan objek atau widget yang sifatnya konstan dan tidak berubah. Objek yang didefinisikan dengan const akan dibuat sekali dan selalu merujuk pada instance yang sama di memori, tanpa harus dibuat ulang setiap kali widget diapnggil. 
+**Keuntungan** `const` yaitu:
+* Dapat menghemat memori karena objek atau widget hanya dibuat sekali, sehingga mengurangi konsumsi memori karena tidak perlu membuat instance baru dari objek yang sama.
+* Membuat aplikasi lebih cepat dan responsif karena Flutter tidak akan merender ulang widget yang didefinisikan sebagai const saat terjadi rebuild pada UI.
+* Flutter dapat melakukan optimalisasi waktu kompilasi pada widget atau objek const dengan lebih baik, karena nilai dari widget tersebut sudah diketahui dan dipastikan tidak akan berubah. Ini bisa mengurangi waktu kompilasi dan dapat mempercepat build aplikasi.
+
+**Kita sebaiknya menggunakan const** jika widget atau objek tidak akan berubah seperti teks, ikon, atau layout yang statis dan tidak membutuhkan update.
+
+**Kita sebaiknya tidak menggunakan const** jika widget atau objek memiliki nilai atau properti yang akan berubah, seperti data yang diambil dari API atau variabel yang berubah berdasarkan interaksi pengguna. Jika digunakan pada widget yang dinamis, const akan menyebabkan error.
+
+### 2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+Perbandingan Column dan Row
+| **Karakteristik** | **Column** | **Row** |
+| -------------- | -------- | -------- |
+| Orientasi tata letak | Vertikal (atas ke bawah) | Horizontal (kiri ke kanan) |
+| Sumbu utama (mainAxis) | Vertikal | Horizontal |
+| Sumbu silang (crossAxis) | Horizontal | Vertikal |
+| Penggunaan | Menyusun widget di atas-bawah	| Menyusun widget sejajar ke samping |
+
+**Implementasi Column**
+```
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    Text("Widget 1"),
+    Text("Widget 2"),
+    Text("Widget 3"),
+  ],
+)
+```
+Column menata Text widget dari atas ke bawah, dengan mainAxisAlignment.center untuk memposisikan seluruh kolom di tengah sumbu vertikal dan crossAxisAlignment.start untuk meratakan teks ke sisi kiri pada sumbu horizontal.
+
+**Implementasi Row**
+```
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: <Widget>[
+    Icon(Icons.star),
+    Icon(Icons.favorite),
+    Icon(Icons.home),
+  ],
+)
+
+```
