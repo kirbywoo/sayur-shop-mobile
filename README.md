@@ -1,3 +1,8 @@
+## Daftar Isi
+- [Tugas 7](#tugas-7)
+- [Tugas 8](#tugas-8)
+
+
 ## Tugas 7
 ### 1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya.
    * Stateless widget adalah widget yang tidak memiliki state yang dapat berubah. Artinya, setelah widget ini dibuat, data atau tampilannya tidak akan berubah selama aplikasi berjalan kecuali widget tersebut dibuat ulang secara keseluruhan. Stateless widget cocok digunakan untuk tampilan statis atau komponen UI yang tidak membutuhkan pembaruan data secara dinamis, seperti teks, ikon, atau button.
@@ -132,3 +137,5 @@ final List<ItemHomepage> items = [
             );
         },
   ```
+
+  ## Tugas 8
