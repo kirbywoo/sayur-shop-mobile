@@ -1,4 +1,4 @@
-## Daftar Isi 
+## Daftar Isi 📑 
 - [Tugas 7](#tugas-7)
 - [Tugas 8](#tugas-8)
 
@@ -162,27 +162,61 @@ Perbandingan Column dan Row
 **Implementasi Column**
 ```
 Column(
-  mainAxisAlignment: MainAxisAlignment.center,
   crossAxisAlignment: CrossAxisAlignment.start,
-  children: <Widget>[
-    Text("Widget 1"),
-    Text("Widget 2"),
-    Text("Widget 3"),
+  children: [
+    Text('Name: $_name'),
+    Text('Description: $_description'),
+    Text('Amount: $_amount'),
   ],
 )
+
 ```
-Column menata Text widget dari atas ke bawah, dengan mainAxisAlignment.center untuk memposisikan seluruh kolom di tengah sumbu vertikal dan crossAxisAlignment.start untuk meratakan teks ke sisi kiri pada sumbu horizontal.
+Fungsi Column ini membantu menata tampilan informasi produk agar terlihat rapi dan teratur secara vertikal, dari nama, deskripsi, hingga jumlah yang diinput oleh pengguna.
 
 **Implementasi Row**
 ```
 Row(
-  mainAxisAlignment: MainAxisAlignment.spaceAround,
-  crossAxisAlignment: CrossAxisAlignment.center,
-  children: <Widget>[
-    Icon(Icons.star),
-    Icon(Icons.favorite),
-    Icon(Icons.home),
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    InfoCard(title: 'NPM', content: npm),
+    InfoCard(title: 'Name', content: name),
+    InfoCard(title: 'Class', content: className),
   ],
-)
+),
 
 ```
+Fungsinya untuk menampilkan tiga kartu informasi (InfoCard), masing-masing berisi informasi NPM, Name, dan Class. Dengan menggunakan Row, ketiga InfoCard ini ditampilkan secara horizontal dan tersebar merata.
+
+###  3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+**Elemen input yang digunakan:**
+* TextFormField:
+  Terdapat tiga TextFormField untuk memasukkan:
+  Name: Menyimpan nama produk.
+  Description: Menyimpan deskripsi produk.
+  Amount: Menyimpan jumlah produk.
+  Ketiga elemen TextFormField ini dilengkapi dengan properti seperti labelText, hintText, border, serta fungsi validator untuk melakukan validasi input agar memenuhi kriteria tertentu, seperti memastikan jumlah (Amount) adalah angka positif.
+
+* ElevatedButton:
+  Pada tombol Save yang berfungsi untuk menyimpan data yang diinput ke dalam form. Saat tombol ditekan, tombol ini akan melakukan validasi pada TextFormField melalui _formKey.currentState!.validate(). Jika validasi berhasil, maka dialog konfirmasi akan muncul.
+
+**Beberapa elemen input Flutter lain yang tidak digunakan**
+* DropdownButtonFormField: Berguna untuk memilih dari daftar pilihan (dropdown). Misalnya, elemen ini dapat digunakan jika pengguna perlu memilih kategori.
+* Switch: Menyediakan input toggle (on/off). Contoh penggunaan bisa pada form yang membutuhkan opsi aktif/tidak aktif.
+* Checkbox: Input berbentuk kotak centang yang bisa digunakan untuk memilih beberapa pilihan. Ini berguna jika pengguna perlu menandai beberapa fitur produk.
+* Radio: Memberikan pilihan dengan hanya satu opsi yang dapat dipilih.
+
+### 4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Dalam aplikasi Flutter, saya mengatur tema secara konsisten dengan mendefinisikan tema global di `main.dart` menggunakan `ThemeData` pada parameter `theme` dari `MaterialApp`. Ini memungkinkan saya untuk mendefinisikan elemen seperti warna utama (`primaryColor`), skema warna (`colorScheme`) dan elemen lainnya. Dengan cara ini, setiap bagian aplikasi yang menggunakan `Theme.of(context)` akan mengikuti gaya yang telah ditetapkan, menjaga tampilan aplikasi tetap konsisten di setiap halaman.
+
+Saya mengimplementasikan tema pada aplikasi yang saya buat. Dalam kode saya, tema diatur di `main.dart` menggunakan `ColorScheme.fromSwatch`, di mana warna utama aplikasi (`primarySwatch`) didefinisikan, dan elemen-elemen lainnya seperti `AppBar` dan `DrawerHeader` juga merujuk pada warna yang ditetapkan dalam skema warna ini.
+
+### 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Untuk mengimplementasikan navigasi pada Flutter, dapat ditangani dengan menggunakan Navigator dan Route. 
+* Widget Navigator menampilkan halaman-halaman yang ada kepada layar seakan sebagai sebuah tumpukan (stack). Untuk menavigasi sebuah halaman baru, kita dapat mengakses Navigator melalui BuildContext dan memanggil fungsi yang ada, seperti misalnya push(), pop(), serta pushReplacement().
+* Untuk aplikasi dengan banyak halaman, menggunakan named routes membantu membuat navigasi lebih terstruktur. Rute didefinisikan dalam MaterialApp pada parameter routes, sehingga setiap halaman memiliki nama unik yang bisa dipanggil dengan Navigator.pushNamed().
+
+
+
+
+
+
