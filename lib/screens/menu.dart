@@ -65,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(top: 16.0),
                     child: Text(
-                      'Welcome to Sayur Shop',
+                      '🥦 Welcome to Sayur Shop 🥬',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,

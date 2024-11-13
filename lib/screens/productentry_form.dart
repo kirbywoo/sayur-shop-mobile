@@ -106,6 +106,9 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                     if (amountValue == null) {
                       return "Amount harus berupa angka!";
                     }
+                    if (amountValue == 0) {
+                      return "Amount tidak boleh 0!";
+                    }
                     if (amountValue < 0) {
                       return "Amount tidak boleh negatif!";
                     }
